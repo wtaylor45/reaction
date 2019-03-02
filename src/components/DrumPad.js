@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Sound from 'react-sound';
-import bloop from '../sounds/bloop.wav';
+import bloop from '../sounds/808-Cowbell2.wav';
 
 const Button = styled.button`
   background: ${props => (props.playing ? `dodgerblue` : `lightgray`)};
@@ -9,12 +9,13 @@ const Button = styled.button`
   border-bottom: 3px inset gray;
 `;
 
-const DrumPad = ({ name, sound = bloop }) => {
+const DrumPad = ({ name, soundUrl = bloop }) => {
   const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED);
   const [position, setPosition] = useState(0);
 
   const handleButtonClick = () => {
     setPosition(0);
+    console.log('INTERUPTTTT');
     setPlayStatus(Sound.status.PLAYING);
   };
 
@@ -27,15 +28,10 @@ const DrumPad = ({ name, sound = bloop }) => {
   };
 
   return (
-    <Button
-      type="button"
-      onClick={handleButtonClick}
-      // playing={playStatus === Sound.status.PLAYING}
-      value={sound}
-    >
+    <Button type="button" onClick={handleButtonClick} value={soundUrl}>
       {name}
       <Sound
-        url={sound}
+        url={soundUrl}
         position={position}
         onFinishedPlaying={handleSoundCompletion}
         playStatus={playStatus}
