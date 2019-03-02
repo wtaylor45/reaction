@@ -30,7 +30,8 @@ const DrumPad = ({ name, sound = bloop }) => {
     <Button
       type="button"
       onClick={handleButtonClick}
-      playing={playStatus === Sound.status.PLAYING}
+      // playing={playStatus === Sound.status.PLAYING}
+      value={sound}
     >
       {name}
       <Sound
