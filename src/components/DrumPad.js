@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Sound from 'react-sound';
-import kick from '../sounds/Clicky Kick.wav';
+import bloop from '../sounds/bloop.wav';
 
 const Button = styled.button`
   background: ${props => (props.playing ? `dodgerblue` : `lightgray`)};
@@ -9,7 +9,7 @@ const Button = styled.button`
   border-bottom: 3px inset gray;
 `;
 
-const DrumPad = ({ name }) => {
+const DrumPad = ({ name, sound = bloop }) => {
   const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED);
   const [position, setPosition] = useState(0);
 
@@ -34,11 +34,12 @@ const DrumPad = ({ name }) => {
     >
       {name}
       <Sound
-        url={kick}
+        url={sound}
         position={position}
         onFinishedPlaying={handleSoundCompletion}
         playStatus={playStatus}
         onPlaying={handlePlaying}
+        autoLoad
       />
     </Button>
   );

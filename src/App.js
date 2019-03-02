@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import DrumPad from './components/DrumPad';
+import kick from './sounds/Clicky Kick.wav';
 
 const Machine = styled.main`
   display: grid;
@@ -10,6 +11,7 @@ const Machine = styled.main`
   grid-column-gap: 1vmin;
   grid-row-gap: 1vmin;
   height: 100vh;
+  background-color: #444;
 `;
 
 const App = () => (
@@ -27,7 +29,7 @@ const App = () => (
       <DrumPad />
       <DrumPad />
       <DrumPad />
-      <DrumPad />
+      <DrumPad sound={kick} />
       <DrumPad />
       <DrumPad />
       <DrumPad />
