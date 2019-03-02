@@ -36,7 +36,7 @@ const App = () => {
   // const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePadClick = e => {
-    setSound(e.target.value);
+    if (e.target.value) setSound(e.target.value);
     // setIsPlaying(true);
   };
 
