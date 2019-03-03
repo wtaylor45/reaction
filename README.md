@@ -2,6 +2,8 @@
 
 A simple 808 drum machine built in React
 
+[Live demo](https://wtaylor.tech/reaction)
+
 ## Usage
 
 - Clone this Repo
