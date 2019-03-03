@@ -10,14 +10,15 @@ const Button = styled.button`
   font-size: 2vmin;
 `;
 
-const DrumPad = ({ keyPress, soundUrl = bloop }) => {
+const DrumPad = ({ keyPress, onClick, soundUrl = bloop }) => {
   const [isPlaying, trigger] = useAudio(soundUrl);
 
   const handleButtonClick = () => {
     trigger();
+    onClick(soundUrl);
   };
 
-  useKey(trigger, {
+  useKey(handleButtonClick, {
     detectKeys: [keyPress.toLowerCase()]
   });
 

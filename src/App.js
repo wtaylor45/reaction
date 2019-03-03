@@ -49,8 +49,8 @@ const Wave = styled(ReactWaves)`
 const App = () => {
   const [sound, setSound] = useState('');
 
-  const handlePadClick = e => {
-    if (e.target.value) setSound(e.target.value);
+  const handlePadClick = value => {
+    if (value) setSound(value);
   };
 
   return (
@@ -72,23 +72,23 @@ const App = () => {
             volume: 0
           }}
         />
-        <Pads onClick={handlePadClick} onChange={handlePadClick}>
-          <DrumPad soundUrl={stick} keyPress="5" />
-          <DrumPad soundUrl={tom2} keyPress="6" />
-          <DrumPad soundUrl={tom3} keyPress="7" />
-          <DrumPad soundUrl={tom1} keyPress="8" />
-          <DrumPad soundUrl={clave} keyPress="T" />
-          <DrumPad soundUrl={clap2} keyPress="Y" />
-          <DrumPad soundUrl={clap1} keyPress="U" />
-          <DrumPad soundUrl={cowbell} keyPress="I" />
-          <DrumPad soundUrl={maraca} keyPress="F" />
-          <DrumPad soundUrl={hihat1} keyPress="G" />
-          <DrumPad soundUrl={hihat2} keyPress="H" />
-          <DrumPad soundUrl={ride1} keyPress="J" />
-          <DrumPad soundUrl={kick1} keyPress="V" />
-          <DrumPad soundUrl={kick2} keyPress="B" />
-          <DrumPad soundUrl={snare1} keyPress="N" />
-          <DrumPad soundUrl={snare2} keyPress="M" />
+        <Pads>
+          <DrumPad onClick={handlePadClick} soundUrl={stick} keyPress="5" />
+          <DrumPad onClick={handlePadClick} soundUrl={tom2} keyPress="6" />
+          <DrumPad onClick={handlePadClick} soundUrl={tom3} keyPress="7" />
+          <DrumPad onClick={handlePadClick} soundUrl={tom1} keyPress="8" />
+          <DrumPad onClick={handlePadClick} soundUrl={clave} keyPress="T" />
+          <DrumPad onClick={handlePadClick} soundUrl={clap2} keyPress="Y" />
+          <DrumPad onClick={handlePadClick} soundUrl={clap1} keyPress="U" />
+          <DrumPad onClick={handlePadClick} soundUrl={cowbell} keyPress="I" />
+          <DrumPad onClick={handlePadClick} soundUrl={maraca} keyPress="F" />
+          <DrumPad onClick={handlePadClick} soundUrl={hihat1} keyPress="G" />
+          <DrumPad onClick={handlePadClick} soundUrl={hihat2} keyPress="H" />
+          <DrumPad onClick={handlePadClick} soundUrl={ride1} keyPress="J" />
+          <DrumPad onClick={handlePadClick} soundUrl={kick1} keyPress="V" />
+          <DrumPad onClick={handlePadClick} soundUrl={kick2} keyPress="B" />
+          <DrumPad onClick={handlePadClick} soundUrl={snare1} keyPress="N" />
+          <DrumPad onClick={handlePadClick} soundUrl={snare2} keyPress="M" />
         </Pads>
       </Machine>
     </Container>
