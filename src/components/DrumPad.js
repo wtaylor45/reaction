@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Sound from 'react-sound';
 import bloop from '../sounds/808-Cowbell2.wav';
 
 const Button = styled.button`
-  background: ${props => (props.playing ? `dodgerblue` : `lightgray`)};
-  border-right: 3px inset gray;
-  border-bottom: 3px inset gray;
+  background-color: ${props => (props.playing ? '#555' : '#222')};
+  border: 2px solid dodgerblue;
 `;
 
 const DrumPad = ({ name, soundUrl = bloop }) => {
-  const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED);
-  const [position, setPosition] = useState(0);
+  const [isPlaying, trigger] = useAudio(soundUrl);
 
   const handleButtonClick = () => {
-    setPosition(0);
-    console.log('INTERUPTTTT');
-    setPlayStatus(Sound.status.PLAYING);
-  };
-
-  const handleSoundCompletion = () => {
-    setPlayStatus(Sound.status.STOPPED);
-  };
-
-  const handlePlaying = ({ curPos }) => {
-    setPosition(curPos);
+    trigger();
   };
 
   return (
-    <Button type="button" onClick={handleButtonClick} value={soundUrl}>
+    <Button
+      type="button"
+      onClick={handleButtonClick}
+      value={soundUrl}
+      playing={isPlaying}
+    >
       {name}
-      <Sound
-        url={soundUrl}
-        position={position}
-        onFinishedPlaying={handleSoundCompletion}
-        playStatus={playStatus}
-        onPlaying={handlePlaying}
-        autoLoad
-      />
     </Button>
   );
+};
+
+const useAudio = source => {
+  const audio = new Audio(source);
+  const [playing, setPlaying] = useState(false);
+
+  audio.onended = () => setPlaying(false);
+
+  const trigger = () => {
+    audio.load();
+    audio.currentTime = 0;
+    audio.play();
+    setPlaying(true);
+  };
+
+  return [playing, trigger];
 };
 
 export default DrumPad;

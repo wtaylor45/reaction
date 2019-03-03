@@ -33,8 +33,8 @@ const Machine = styled.main`
 
 const Pads = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 10vmin);
-  grid-template-rows: repeat(4, 10vmin);
+  grid-template-columns: repeat(4, 15vmin);
+  grid-template-rows: repeat(4, 15vmin);
   place-content: center;
   grid-column-gap: 1vmin;
   grid-row-gap: 1vmin;
@@ -65,7 +65,7 @@ const App = () => {
             normalize: true,
             interact: false,
             cursorWidth: 0,
-            height: 200,
+            height: 150,
             hideScrollbar: true,
             responsive: true,
             waveColor: 'dodgerblue',
