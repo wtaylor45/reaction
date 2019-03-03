@@ -72,23 +72,23 @@ const App = () => {
             volume: 0
           }}
         />
-        <Pads onClick={handlePadClick}>
-          <DrumPad soundUrl={stick} />
-          <DrumPad soundUrl={tom2} />
-          <DrumPad soundUrl={tom3} />
-          <DrumPad soundUrl={tom1} />
-          <DrumPad soundUrl={clave} />
-          <DrumPad soundUrl={clap2} />
-          <DrumPad soundUrl={clap1} />
-          <DrumPad soundUrl={cowbell} />
-          <DrumPad soundUrl={maraca} />
-          <DrumPad soundUrl={hihat1} />
-          <DrumPad soundUrl={hihat2} />
-          <DrumPad soundUrl={ride1} />
-          <DrumPad soundUrl={kick1} />
-          <DrumPad soundUrl={kick2} />
-          <DrumPad soundUrl={snare1} />
-          <DrumPad soundUrl={snare2} />
+        <Pads onClick={handlePadClick} onChange={handlePadClick}>
+          <DrumPad soundUrl={stick} keyPress="5" />
+          <DrumPad soundUrl={tom2} keyPress="6" />
+          <DrumPad soundUrl={tom3} keyPress="7" />
+          <DrumPad soundUrl={tom1} keyPress="8" />
+          <DrumPad soundUrl={clave} keyPress="T" />
+          <DrumPad soundUrl={clap2} keyPress="Y" />
+          <DrumPad soundUrl={clap1} keyPress="U" />
+          <DrumPad soundUrl={cowbell} keyPress="I" />
+          <DrumPad soundUrl={maraca} keyPress="F" />
+          <DrumPad soundUrl={hihat1} keyPress="G" />
+          <DrumPad soundUrl={hihat2} keyPress="H" />
+          <DrumPad soundUrl={ride1} keyPress="J" />
+          <DrumPad soundUrl={kick1} keyPress="V" />
+          <DrumPad soundUrl={kick2} keyPress="B" />
+          <DrumPad soundUrl={snare1} keyPress="N" />
+          <DrumPad soundUrl={snare2} keyPress="M" />
         </Pads>
       </Machine>
     </Container>

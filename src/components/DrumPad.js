@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
+import useKey from 'use-key-hook';
 import styled from 'styled-components';
 import bloop from '../sounds/808-Cowbell2.wav';
 
 const Button = styled.button`
   background-color: ${props => (props.playing ? '#555' : '#222')};
   border: 2px solid dodgerblue;
+  color: white;
+  font-size: 2vmin;
 `;
 
-const DrumPad = ({ name, soundUrl = bloop }) => {
+const DrumPad = ({ keyPress, soundUrl = bloop }) => {
   const [isPlaying, trigger] = useAudio(soundUrl);
 
   const handleButtonClick = () => {
     trigger();
   };
+
+  useKey(trigger, {
+    detectKeys: [keyPress.toLowerCase()]
+  });
 
   return (
     <Button
@@ -21,7 +28,7 @@ const DrumPad = ({ name, soundUrl = bloop }) => {
       value={soundUrl}
       playing={isPlaying}
     >
-      {name}
+      {keyPress}
     </Button>
   );
 };
@@ -34,7 +41,6 @@ const useAudio = source => {
 
   const trigger = () => {
     audio.load();
-    audio.currentTime = 0;
     audio.play();
     setPlaying(true);
   };
